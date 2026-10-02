@@ -1,0 +1,778 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<script>
+  /* Тема выбирается до первой отрисовки, чтобы не мигало белым */
+  (function () {
+    try {
+      var saved = localStorage.getItem("mb-theme");
+      var dark = saved ? saved === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+      document.documentElement.setAttribute("data-theme", dark ? "dark" : "light");
+    } catch (e) { document.documentElement.setAttribute("data-theme", "light"); }
+  })();
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Мир биотехнологий - образовательный набор с настоящими культурами микроорганизмов</title>
+<meta name="description" content="Образовательный набор из 6 чашек Петри с реальными культурами микроорганизмов, зафиксированными в прозрачном полимере. Для школ, колледжей, вузов и домашнего изучения.">
+<meta name="keywords" content="образовательный набор, микробиология, биотехнология, чашки Петри, культуры микроорганизмов, STEAM, школа, колледж, вуз">
+<meta name="author" content="Мир биотехнологий">
+<meta name="theme-color" content="#f5f6f0" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0a0f0c" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://mirbiotech.ru/">
+
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:site_name" content="Мир биотехнологий">
+<meta property="og:title" content="Мир биотехнологий - настоящие микроорганизмы в ваших руках">
+<meta property="og:description" content="6 реальных культур микроорганизмов, зафиксированных для безопасного изучения. Образовательный набор от биотехнологов.">
+<meta property="og:image" content="assets/img/og-cover.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="assets/img/favicon-64.png" type="image/png">
+<link rel="apple-touch-icon" href="assets/img/favicon-192.png">
+<link rel="manifest" href="site.webmanifest">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="assets/img/box-photo.png?v=2">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Перейти к содержанию</a>
+<div class="scroll-progress" aria-hidden="true"><i></i></div>
+<div class="grain" aria-hidden="true"></div>
+
+<!-- ─────────────────────────  ШАПКА  ───────────────────────── -->
+<header class="site-header" id="header">
+  <div class="shell header-inner">
+    <a class="brand" href="#top" aria-label="Мир биотехнологий - на главную">
+      <img class="brand-mark" src="assets/img/logo-emblem.png" alt="" width="44" height="44" loading="eager">
+      <span class="brand-text"><b>МИР</b><small>БИОТЕХНОЛОГИЙ</small></span>
+    </a>
+
+    <nav class="main-nav" id="main-nav" aria-label="Основная навигация">
+      <a href="#about">О наборе</a>
+      <a href="#cultures">Культуры</a>
+      <a href="#process">Как это работает</a>
+      <a href="#audience">Кому подходит</a>
+      <a href="#pricing">Цены</a>
+      <a href="#faq">Вопросы</a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="icon-btn theme-toggle" id="theme-toggle" type="button" aria-label="Переключить тему" title="Светлая / тёмная тема">
+        <svg class="ico-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.6"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3M4.9 4.9l2.1 2.1M17 17l2.1 2.1M19.1 4.9L17 7M7 17l-2.1 2.1"/></svg>
+        <svg class="ico-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z"/></svg>
+      </button>
+      <a class="btn btn-primary btn-sm" href="#pricing">Заказать набор</a>
+      <button class="icon-btn burger" id="burger" type="button" aria-label="Меню" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobile-menu" hidden>
+  <nav aria-label="Мобильная навигация">
+    <a href="#about"><span>01</span>О наборе</a>
+    <a href="#cultures"><span>02</span>Культуры</a>
+    <a href="#process"><span>03</span>Как это работает</a>
+    <a href="#audience"><span>04</span>Кому подходит</a>
+    <a href="#pricing"><span>05</span>Цены и заказ</a>
+    <a href="#faq"><span>06</span>Вопросы</a>
+    <a href="#contacts"><span>07</span>Контакты</a>
+  </nav>
+  <div class="mobile-menu-foot">
+    <a class="btn btn-primary" href="#pricing">Заказать набор</a>
+    <p>Казань · образовательная биотехнология</p>
+  </div>
+</div>
+
+<main id="main">
+<span id="top"></span>
+
+<!-- ─────────────────────────  ГЕРОЙ  ───────────────────────── -->
+<section class="hero">
+  <div class="shell hero-grid">
+    <div class="hero-copy">
+      <p class="badge reveal"><i class="dot"></i>Образовательная биотехнология</p>
+      <h1 class="reveal">Настоящие<br>микроорганизмы<br><em>Биотехнология</em><br>в ваших руках</h1>
+      <p class="lead reveal">Шесть культур микроорганизмов вырастили в лаборатории, остановили их рост и залили прозрачным полимером - получился учебный образец, который можно вертеть в руках и разглядывать хоть весь урок, ничем не рискуя.</p>
+      <div class="hero-actions reveal">
+        <a class="btn btn-primary btn-lg" href="#pricing">Собрать набор<svg viewBox="0 0 24 24" class="btn-ico" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn btn-ghost btn-lg" href="#cultures">Посмотреть культуры</a>
+      </div>
+      <dl class="hero-stats reveal">
+        <div><dt data-count="6">6</dt><dd>культур в наборе</dd></div>
+        <div><dt data-count="4">4</dt><dd>группы микроорганизмов</dd></div>
+        <div><dt>∞</dt><dd>срок наблюдения</dd></div>
+      </dl>
+    </div>
+
+    <div class="hero-visual" id="hero-visual">
+      <div class="hero-orb" aria-hidden="true"></div>
+      <div class="hero-rings" aria-hidden="true"><span></span><span></span><span></span></div>
+
+      <img class="hero-box-photo" data-depth="14" src="assets/img/box-photo.png?v=2" alt="Набор «Мир биотехнологий»: реальная коробка" width="1390" height="1132" loading="eager" decoding="async">
+
+      <img class="hero-dish d1" data-depth="34" src="assets/img/dish-rhodosporidium.png" alt="Чашка Петри с культурой Rhodosporidium" width="500" height="500" loading="eager" decoding="async">
+      <img class="hero-dish d2" data-depth="22" src="assets/img/dish-chlorella.png" alt="Чашка Петри с культурой Chlorella" width="500" height="500" loading="eager" decoding="async">
+      <img class="hero-dish d3" data-depth="46" src="assets/img/dish-saccharomyces.png" alt="Чашка Петри с культурой Saccharomyces" width="500" height="500" loading="lazy" decoding="async">
+      <img class="hero-dish d4" data-depth="28" src="assets/img/dish-rhodococcus.png" alt="Чашка Петри с культурой Rhodococcus" width="500" height="500" loading="lazy" decoding="async">
+
+      <figure class="hero-chip chip-a" data-depth="52">
+        <b>Инактивированы</b><span>Открывать чашку можно</span>
+      </figure>
+      <figure class="hero-chip chip-b" data-depth="40">
+        <b>Хранение без холодильника</b><span>Комнатная температура</span>
+      </figure>
+    </div>
+  </div>
+
+  <a class="scroll-cue" href="#about" aria-label="Листать вниз"><span></span>прокрутите</a>
+</section>
+
+<!-- ─────────────────────────  ЛЕНТА  ───────────────────────── -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Saccharomyces</span><i>◍</i><span>Rhodosporidium</span><i>◍</i><span>Chlorella</span><i>◍</i><span>Pseudomonas</span><i>◍</i><span>Rhodococcus</span><i>◍</i><span>Fusarium</span><i>◍</i>
+    <span>Saccharomyces</span><i>◍</i><span>Rhodosporidium</span><i>◍</i><span>Chlorella</span><i>◍</i><span>Pseudomonas</span><i>◍</i><span>Rhodococcus</span><i>◍</i><span>Fusarium</span><i>◍</i>
+  </div>
+</div>
+
+<!-- ─────────────────────────  О НАБОРЕ  ───────────────────────── -->
+<section class="section split" id="about">
+  <div class="shell split-grid">
+    <div class="split-copy reveal">
+      <p class="eyebrow"><span>01</span>Наблюдение</p>
+      <h2>Биотехнологию можно не только изучать<br><strong>Её можно увидеть</strong></h2>
+      <p class="body-lg">В учебнике микроорганизм - это картинка на странице, у всех одинаковая. В чашке - конкретная колония со своей формой, краем, рельефом и цветом, которую вырастили именно для этого набора.</p>
+      <ul class="check-list">
+        <li>Морфология колоний, которую видно невооружённым глазом</li>
+        <li>Шесть разных стратегий жизни - от фотосинтеза до разложения нефти</li>
+        <li>Каждый образец связан с конкретным промышленным применением</li>
+      </ul>
+      <a class="link-arrow" href="#cultures">Разобрать все шесть культур<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+
+    <figure class="split-media reveal" id="macro-figure">
+      <div class="macro-frame">
+        <img src="assets/img/dish-rhodococcus-macro.png" alt="Крупный план колоний Rhodococcus на питательной среде" width="720" height="720" loading="lazy">
+        <div class="macro-hud">
+          <span class="hud-tl">MACRO · ×1</span>
+          <span class="hud-tr">RHODOCOCCUS</span>
+          <span class="hud-bl">COLONY MORPHOLOGY</span>
+          <span class="hud-br">Ø 60 мм</span>
+        </div>
+      </div>
+      <figcaption>Пигментированные колонии актинобактерий. Оранжевый цвет - каротиноиды, которые защищают клетку от окисления.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ─────────────────────────  НЕ МУЛЯЖ  ───────────────────────── -->
+<section class="section contrast" id="real">
+  <div class="shell">
+    <div class="section-head reveal">
+      <div>
+        <p class="eyebrow"><span>02</span>Реальные культуры</p>
+        <h2>Это не рисунок и <strong>не пластиковая копия</strong></h2>
+      </div>
+      <p class="section-note">Культуру выращивают на питательной среде, останавливают её рост и заливают прозрачным полимером. Живой она быть перестаёт, но настоящей - остаётся.</p>
+    </div>
+
+    <ol class="pipeline reveal">
+      <li><b>01</b><h3>Культура</h3><p>Штамм из рабочей коллекции лаборатории</p></li>
+      <li><b>02</b><h3>Культивирование</h3><p>Рост на питательной среде - часть готовят из гидролизатов растительных отходов</p></li>
+      <li><b>03</b><h3>Инактивация</h3><p>Микроорганизм теряет способность к росту</p></li>
+      <li><b>04</b><h3>Фиксация</h3><p>Заливка прозрачным полимером</p></li>
+      <li><b>05</b><h3>Образец</h3><p>Герметичная чашка, готовая к занятию</p></li>
+    </ol>
+
+    <div class="why reveal">
+      <p class="why-title">Почему «Мир биотехнологий»?</p>
+      <div class="why-grid">
+        <div class="why-card">
+          <b>01</b>
+          <h3>Реальные культуры</h3>
+          <p>Не иллюстрация и не пластиковая модель - настоящая колония микроорганизма.</p>
+        </div>
+        <div class="why-card">
+          <b>02</b>
+          <h3>Готово к использованию</h3>
+          <p>Не нужно самостоятельно выращивать культуры и ждать результата.</p>
+        </div>
+        <div class="why-card">
+          <b>03</b>
+          <h3>Связь с биотехнологией</h3>
+          <p>Каждая колония - это конкретное производство: от хлебопечения дрожжами до переработки нефтяных загрязнений родококком.</p>
+        </div>
+        <div class="why-card">
+          <b>04</b>
+          <h3>Без специального оборудования</h3>
+          <p>Готовый формат: без лаборатории, реактивов и подготовки.</p>
+        </div>
+        <div class="why-card">
+          <b>05</b>
+          <h3>Отечественная разработка</h3>
+          <p>Создано российскими биотехнологами.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────────────────────  КОМПЛЕКТАЦИЯ  ───────────────────────── -->
+<section class="section kit" id="kit">
+  <div class="shell">
+    <div class="section-head reveal">
+      <div>
+        <p class="eyebrow"><span>03</span>Комплектация</p>
+        <h2>Всё необходимое -<br><strong>в одной коробке</strong></h2>
+      </div>
+      <p class="section-note">Наведите или нажмите на элемент списка, чтобы подсветить его в наборе.</p>
+    </div>
+
+    <div class="kit-grid reveal">
+      <ul class="kit-list" id="kit-list">
+        <li data-hot="dishes" class="is-active">
+          <span class="num">01</span>
+          <h3>Шесть чашек Петри</h3>
+          <p>Подготовленные культуры шести микроорганизмов, каждая - герметичная, промаркированная и готовая к передаче из рук в руки.</p>
+        </li>
+        <li data-hot="cards">
+          <span class="num">02</span>
+          <h3>Шесть образовательных карточек</h3>
+          <p>Систематика, морфология и промышленное применение каждой культуры. Материал адаптирован под разный возраст школьников - можно давать и в 8 классе, и в профильной группе.</p>
+        </li>
+        <li data-hot="guide">
+          <span class="num">03</span>
+          <h3>Методические материалы</h3>
+          <p>Сценарий занятия, вопросы для обсуждения и задания - от основной школы до профильного курса.</p>
+        </li>
+        <li data-hot="box">
+          <span class="num">04</span>
+          <h3>Транспортировочная упаковка</h3>
+          <p>Плотная коробка держит чашки на месте: набор нормально переживает поездку между кабинетами и школами.</p>
+        </li>
+      </ul>
+
+      <div class="kit-stage" id="kit-stage">
+        <div class="kit-stage-inner">
+          <div class="hot hot-dishes"><img src="assets/img/dish-pseudomonas.png" alt="Чашка Петри из набора" width="500" height="500" loading="lazy"></div>
+          <div class="hot hot-cards">
+            <img src="assets/img/card-preview.jpg" alt="Образец образовательной карточки набора" width="630" height="892" loading="lazy">
+          </div>
+          <div class="hot hot-guide">
+            <img src="assets/img/guide-preview.jpg" alt="Фрагмент методического пособия: занятие «Кто работает на заводе»" width="760" height="980" loading="lazy">
+          </div>
+          <div class="hot hot-box"><img src="assets/img/box-photo.png?v=2" alt="Коробка набора «Мир биотехнологий»" width="1390" height="1132" loading="lazy"></div>
+        </div>
+        <p class="kit-caption" id="kit-caption">Шесть чашек Петри</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────────────────────  КУЛЬТУРЫ  ───────────────────────── -->
+<section class="section cultures" id="cultures">
+  <div class="shell">
+    <div class="section-head reveal">
+      <div>
+        <p class="eyebrow"><span>04</span>Культуры</p>
+        <h2>Шесть культур<br><strong>Шесть историй биотехнологии</strong></h2>
+      </div>
+      <p class="section-note">Нажмите на чашку, чтобы рассмотреть образец крупнее и переключиться на вид под микроскопом.</p>
+    </div>
+
+    <div class="filters reveal" role="tablist" aria-label="Фильтр по группам микроорганизмов">
+      <button class="chip is-active" data-filter="all" role="tab" aria-selected="true">Все шесть</button>
+      <button class="chip" data-filter="yeast" role="tab" aria-selected="false">Дрожжи</button>
+      <button class="chip" data-filter="bacteria" role="tab" aria-selected="false">Бактерии</button>
+      <button class="chip" data-filter="algae" role="tab" aria-selected="false">Микроводоросли</button>
+      <button class="chip" data-filter="fungi" role="tab" aria-selected="false">Микрогрибы</button>
+    </div>
+
+    <div class="culture-grid" id="culture-grid"><!-- карточки строит app.js --></div>
+  </div>
+</section>
+
+<!-- ─────────────────────────  ПРОЦЕСС  ───────────────────────── -->
+<section class="section process" id="process">
+  <div class="shell process-grid">
+    <div class="process-sticky">
+      <p class="eyebrow"><span>05</span>Технология</p>
+      <h2>От штамма -<br><strong>к учебному образцу</strong></h2>
+      <p class="body-lg">Пять этапов лабораторной работы - от выбора штамма и подбора среды до фиксации в полимере и сборки готового набора.</p>
+      <div class="process-visual">
+        <div class="pv-stage" id="pv-stage">
+          <img src="assets/img/process-strain.jpg" alt="" width="1000" height="1000" loading="lazy" aria-hidden="true">
+          <div class="pv-overlay" id="pv-overlay"><b id="pv-num">01</b><span id="pv-label">Штамм</span></div>
+        </div>
+        <div class="pv-progress"><i id="pv-bar"></i></div>
+      </div>
+    </div>
+
+    <ol class="process-steps" id="process-steps">
+      <li class="reveal" data-step="01" data-label="Штамм">
+        <h3>Выбираем штамм</h3>
+        <p>Культуру берут из рабочей коллекции лаборатории бактериологической петлёй, прокалённой на пламени спиртовки, - так соблюдают асептику и не заносят постороннюю микрофлору. Для набора отбирают штаммы, у которых колония показательна по морфологии, а применение понятно и школьнику.</p>
+      </li>
+      <li class="reveal" data-step="02" data-label="Среда">
+        <h3>Подбираем среду</h3>
+        <p>У дрожжей, бактерий, водоросли и гриба разный обмен веществ, поэтому и питательная среда для каждой культуры своя - отличается и состав, и цвет. Часть сред готовят на основе гидролизатов растительных отходов: экологичнее, чем стандартные субстраты, и колонии растут не хуже.</p>
+      </li>
+      <li class="reveal" data-step="03" data-label="Рост">
+        <h3>Культивируем</h3>
+        <p>Чашки выдерживают в термостате при постоянной температуре, отмечая дату посева на каждой. Рост останавливают в тот момент, когда морфология колонии - форма, край, рельеф поверхности - выражена лучше всего.</p>
+      </li>
+      <li class="reveal" data-step="04" data-label="Фиксация">
+        <h3>Инактивируем и фиксируем</h3>
+        <p>Культуру инактивируют - она необратимо теряет способность к росту и размножению - и заливают прозрачным полимером, который фиксирует рельеф колонии таким, каким он был в момент остановки роста.</p>
+      </li>
+      <li class="reveal" data-step="05" data-label="Набор">
+        <h3>Собираем набор</h3>
+        <p>Каждый образец взвешивают, проверяют на герметичность и маркируют, в коробку кладут карточку - и набор едет к вам.</p>
+      </li>
+    </ol>
+  </div>
+
+  <div class="shell">
+    <aside class="safety-note reveal">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.6 20 6v6.2c0 4.6-3.3 7.9-8 9.2-4.7-1.3-8-4.6-8-9.2V6z"/><path d="M8.6 12.2 11 14.7l4.6-5"/></svg>
+      <div>
+        <b>Безопасно по конструкции</b>
+        <p>Культура инактивирована и зафиксирована в полимере - она не растёт и не опасна, даже если снять крышку и достать образец. Учащемуся не нужны перчатки, вытяжка и допуск в лабораторию.</p>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<!-- ─────────────────────────  АУДИТОРИЯ  ───────────────────────── -->
+<section class="section audience" id="audience">
+  <div class="shell">
+    <div class="section-head reveal">
+      <div>
+        <p class="eyebrow"><span>06</span>Сценарии</p>
+        <h2>Для тех, кто хочет<br><strong>увидеть биотехнологию</strong></h2>
+      </div>
+      <p class="section-note">Один набор закрывает и урок биологии, и профориентационное занятие, и домашний интерес.</p>
+    </div>
+
+    <div class="aud-grid reveal">
+      <article class="aud-card">
+        <div class="aud-ico" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M4 28V13l12-7 12 7v15"/><path d="M12 28v-8h8v8"/><path d="M16 6V2M12 3h8"/></svg></div>
+        <h3>Школам</h3>
+        <p>Биология 9–11 класс, STEAM-кружки, проектная деятельность, профориентация.</p>
+        <ul><li>Урок «Царства живого» наглядно</li><li>Проект на школьную конференцию</li></ul>
+      </article>
+      <article class="aud-card">
+        <div class="aud-ico" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M13 4h5v12h-5z" transform="rotate(-18 15.5 10)"/><path d="M11 22h13a8 8 0 0 0-8-8"/><path d="M6 28h22M10 28v-3h12v3"/></svg></div>
+        <h3>Колледжам</h3>
+        <p>Микробиология и биотехнология для специальностей пищевого и химического профиля.</p>
+        <ul><li>Демонстрация морфологии колоний</li><li>Введение перед практикумом</li></ul>
+      </article>
+      <article class="aud-card">
+        <div class="aud-ico" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M2 12 16 5l14 7-14 7z"/><path d="M8 15v7c0 2 3.6 4 8 4s8-2 8-4v-7"/><path d="M28 12v9"/></svg></div>
+        <h3>Вузам</h3>
+        <p>Промышленная биотехнология, дни открытых дверей, работа с абитуриентами.</p>
+        <ul><li>Наглядный материал для лекции</li><li>Экспонат кафедры</li></ul>
+      </article>
+      <article class="aud-card">
+        <div class="aud-ico" aria-hidden="true"><svg viewBox="0 0 32 32"><path d="M3 14 16 4l13 10"/><path d="M6 12.5V27h20V12.5"/><path d="M13 27v-8h6v8"/></svg></div>
+        <h3>Дома</h3>
+        <p>Подарок увлечённому подростку и повод разобраться, как устроена биотехнология.</p>
+        <ul><li>Самостоятельное изучение</li><li>Коллекция на полке</li></ul>
+      </article>
+    </div>
+
+    <div class="lesson-strip reveal">
+      <h3>Готовые сценарии занятий</h3>
+      <div class="lessons">
+        <article><span>45 мин</span><b>«Кто работает на заводе»</b><p>Разбираем, какой микроорганизм что производит: от хлеба до биодизеля.</p></article>
+        <article><span>45 мин</span><b>«Читаем колонию»</b><p>Форма, край, поверхность, пигмент - учимся описывать культуру как микробиолог.</p></article>
+        <article><span>90 мин</span><b>«Биотехнология и экология»</b><p>Родококк и хлорелла: очистка воды и переработка нефтезагрязнений.</p></article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────────────────────  ЦИФРЫ  ───────────────────────── -->
+<section class="section numbers">
+  <div class="shell num-grid reveal">
+    <div><dt data-count="6">6</dt><dd>культур микроорганизмов в наборе</dd></div>
+    <div><dt data-count="4">4</dt><dd>группы: дрожжи, бактерии, водоросли, грибы</dd></div>
+    <div><dt data-count="45" data-suffix=" мин">45 мин</dt><dd>занятие без подготовки лаборатории</dd></div>
+    <div><dt>+20 °C</dt><dd>хранение при комнатной температуре, без холодильника</dd></div>
+  </div>
+</section>
+
+<!-- ─────────────────────────  ОТЗЫВЫ  ───────────────────────── -->
+<section class="section reviews" id="reviews">
+  <div class="shell">
+    <div class="section-head reveal">
+      <div>
+        <p class="eyebrow"><span>07</span>Отзывы</p>
+        <h2>Что говорят<br><strong>преподаватели</strong></h2>
+      </div>
+      <div class="slider-nav">
+        <button class="icon-btn" id="rev-prev" type="button" aria-label="Предыдущий отзыв"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></button>
+        <button class="icon-btn" id="rev-next" type="button" aria-label="Следующий отзыв"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></button>
+      </div>
+    </div>
+
+    <div class="slider reveal" id="reviews-slider">
+      <div class="slider-track" id="reviews-track">
+        <blockquote class="review">
+          <p>«Провела с чашками урок в 9 классе - дети реально оживились, что для последнего урока в пятницу почти чудо. Один мальчик спросил, можно ли открыть крышку и понюхать (объяснила, что не стоит, хотя запаха там всё равно нет)».</p>
+          <footer><b>Учитель биологии</b><span>школа, Казань</span></footer>
+        </blockquote>
+        <blockquote class="review">
+          <p>«Плюсы: ничего не надо готовить заранее, сразу можно разбирать морфологию колоний. Минусы: шести чашек на группу маловато, если человек 15-20. В остальном для первого занятия практикума то, что нужно».</p>
+          <footer><b>Преподаватель микробиологии</b><span>колледж</span></footer>
+        </blockquote>
+        <blockquote class="review">
+          <p>«На днях открытых дверей работает лучше любого стенда с текстом. Люди подходят сами, зазывать не приходится».</p>
+          <footer><b>Сотрудник кафедры</b><span>вуз</span></footer>
+        </blockquote>
+        <blockquote class="review">
+          <p>«Сыну на день рождения взяла почти наугад, думала не зайдёт - ему обычно техника и игры интересны. А тут вторую неделю чашки на столе стоят, и за ужином что-то рассказывал про бактерии, которые нефть разлагают. В общем, не прогадала».</p>
+          <footer><b>Родитель</b><span>покупка для дома</span></footer>
+        </blockquote>
+      </div>
+      <div class="slider-dots" id="reviews-dots" role="tablist" aria-label="Переключение отзывов"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────────────────────  ЦЕНЫ / КОНФИГУРАТОР  ───────────────────────── -->
+<section class="section pricing" id="pricing">
+  <div class="shell">
+    <div class="section-head reveal">
+      <div>
+        <p class="eyebrow"><span>08</span>Заказ</p>
+        <h2>Соберите набор<br><strong>под свою задачу</strong></h2>
+      </div>
+      <p class="section-note">Стоимость пересчитывается сразу. Для организаций доступен счёт и отсрочка по договору.</p>
+    </div>
+
+    <div class="config reveal">
+      <div class="config-main">
+        <fieldset class="cfg-block">
+          <legend><span>01</span>Комплектация</legend>
+          <div class="cfg-options" id="cfg-editions">
+            <label class="cfg-option is-active">
+              <input type="radio" name="edition" value="base" checked data-price="3906">
+              <span class="opt-body">
+                <b>Базовый</b>
+                <em>6 культур · 6 карточек · упаковка</em>
+                <i class="opt-price">3 906 ₽</i>
+              </span>
+            </label>
+            <label class="cfg-option">
+              <input type="radio" name="edition" value="plus" data-price="6490">
+              <span class="opt-body">
+                <b>Расширенный <mark>популярный</mark></b>
+                <em>Базовый + демонстрационная подставка + расширенные карточки</em>
+                <i class="opt-price">6 490 ₽</i>
+              </span>
+            </label>
+            <label class="cfg-option">
+              <input type="radio" name="edition" value="class" data-price="17900">
+              <span class="opt-body">
+                <b>Классный комплект</b>
+                <em>5 наборов + методичка для преподавателя</em>
+                <i class="opt-price">17 900 ₽</i>
+              </span>
+            </label>
+          </div>
+        </fieldset>
+
+        <fieldset class="cfg-block">
+          <legend><span>02</span>Дополнения</legend>
+          <div class="cfg-addons" id="cfg-addons">
+            <label class="cfg-addon"><input type="checkbox" value="guide" data-price="690"><span><b>Методическое пособие</b><em>3 сценария занятий и задания</em></span><i>+690 ₽</i></label>
+            <label class="cfg-addon"><input type="checkbox" value="stand" data-price="1190"><span><b>Демонстрационная подставка</b><em>Все шесть чашек на одной подставке - удобно для витрины или стола</em></span><i>+1 190 ₽</i></label>
+          </div>
+        </fieldset>
+
+        <fieldset class="cfg-block">
+          <legend><span>03</span>Количество</legend>
+          <div class="cfg-qty">
+            <div class="qty-control">
+              <button type="button" class="icon-btn" id="qty-minus" aria-label="Уменьшить количество">−</button>
+              <input type="number" id="qty" value="1" min="1" max="200" inputmode="numeric" aria-label="Количество наборов">
+              <button type="button" class="icon-btn" id="qty-plus" aria-label="Увеличить количество">+</button>
+            </div>
+            <input type="range" id="qty-range" min="1" max="50" value="1" aria-label="Количество наборов, ползунок">
+            <ul class="discount-scale" id="discount-scale">
+              <li data-min="5">от 5 шт · −7%</li>
+              <li data-min="10">от 10 шт · −12%</li>
+              <li data-min="20">от 20 шт · −18%</li>
+            </ul>
+          </div>
+        </fieldset>
+      </div>
+
+      <aside class="config-summary" id="config-summary">
+        <h3>Ваш набор</h3>
+        <ul class="sum-lines" id="sum-lines"></ul>
+        <div class="sum-total">
+          <span>Итого</span>
+          <b id="sum-total">3 906 ₽</b>
+        </div>
+        <p class="sum-hint" id="sum-hint">Доставка по России от 350 ₽ · бесплатно от 15 000 ₽</p>
+        <a class="btn btn-primary btn-lg btn-block" href="#order-form" id="to-order">Оформить заявку</a>
+        <ul class="sum-perks">
+          <li>Счёт и закрывающие документы для организаций</li>
+          <li>Отгрузка партий от 5 наборов</li>
+          <li>Консультация по сценарию занятия</li>
+        </ul>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────────────────────  ФОРМА  ───────────────────────── -->
+<section class="section order" id="order-form">
+  <div class="shell order-grid">
+    <div class="order-copy reveal">
+      <p class="eyebrow"><span>09</span>Заявка</p>
+      <h2>Оставьте заявку -<br><strong>ответим в рабочий день</strong></h2>
+      <p class="body-lg">Расскажем про сроки, поможем выбрать комплектацию и подготовим коммерческое предложение для организации.</p>
+      <ul class="order-contacts" id="contacts">
+        <li><span>Почта</span><a href="mailto:info@mirbiotech.ru">info@mirbiotech.ru</a></li>
+        <li><span>Telegram</span><a href="https://t.me/" rel="noopener">@mirbiotech</a></li>
+        <li><span>Город</span><a href="#">Казань</a></li>
+      </ul>
+    </div>
+
+    <form class="order-form reveal" id="lead-form" novalidate>
+      <div class="seg" role="radiogroup" aria-label="Тип покупателя">
+        <label><input type="radio" name="buyer" value="person" checked><span>Частное лицо</span></label>
+        <label><input type="radio" name="buyer" value="org"><span>Организация</span></label>
+      </div>
+
+      <div class="field">
+        <label for="f-name">Имя и фамилия</label>
+        <input id="f-name" name="name" type="text" autocomplete="name" required placeholder="Иван Петров">
+        <small class="err" data-for="f-name"></small>
+      </div>
+
+      <div class="field org-only" hidden>
+        <label for="f-org">Организация</label>
+        <input id="f-org" name="org" type="text" autocomplete="organization" placeholder="МБОУ «Лицей №…»">
+        <small class="err" data-for="f-org"></small>
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <label for="f-email">Электронная почта</label>
+          <input id="f-email" name="email" type="email" autocomplete="email" required placeholder="you@school.ru">
+          <small class="err" data-for="f-email"></small>
+        </div>
+        <div class="field">
+          <label for="f-phone">Телефон</label>
+          <input id="f-phone" name="phone" type="tel" autocomplete="tel" placeholder="+7 (___) ___-__-__">
+          <small class="err" data-for="f-phone"></small>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="f-note">Комментарий</label>
+        <textarea id="f-note" name="note" rows="3" placeholder="Например: нужен счёт на 10 наборов до конца месяца"></textarea>
+      </div>
+
+      <div class="field-order-preview">
+        <b>Заявка на:</b> <span id="form-summary">Базовый набор × 1 - 3 906 ₽</span>
+      </div>
+
+      <label class="agree">
+        <input type="checkbox" id="f-agree" required>
+        <span>Согласен на <a href="privacy.html" target="_blank" rel="noopener">обработку персональных данных</a> и получение ответа на заявку</span>
+      </label>
+      <small class="err" data-for="f-agree"></small>
+
+      <button class="btn btn-primary btn-lg btn-block" type="submit">Отправить заявку</button>
+
+      <div class="form-success" id="form-success" hidden>
+        <div class="fs-ico" aria-hidden="true">✓</div>
+        <h3>Заявка сформирована</h3>
+        <p id="fs-text"></p>
+        <a class="btn btn-ghost" id="fs-mail" href="#">Отправить письмом</a>
+        <button class="btn btn-ghost" type="button" id="fs-reset">Заполнить заново</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- ─────────────────────────  FAQ  ───────────────────────── -->
+<section class="section faq" id="faq">
+  <div class="shell">
+    <div class="section-head reveal">
+      <div>
+        <p class="eyebrow"><span>10</span>Вопросы</p>
+        <h2>Частые вопросы</h2>
+      </div>
+      <div class="faq-search">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M16.5 16.5 21 21"/></svg>
+        <input type="search" id="faq-search" placeholder="Поиск по вопросам" aria-label="Поиск по вопросам">
+      </div>
+    </div>
+
+    <div class="faq-list" id="faq-list">
+      <details><summary>Микроорганизмы внутри чашек живые?<i></i></summary><div><p>Нет. Перед фиксацией культура проходит инактивацию и теряет способность к росту и размножению. Образец сохраняет форму, рельеф и цвет колоний, но не является живой культурой.</p></div></details>
+      <details><summary>Можно ли открыть чашку Петри?<i></i></summary><div><p>Да, крышка снимается, как у обычной чашки Петри. Открывать её не обязательно - рельеф колонии хорошо виден и через крышку, в том числе с лупой, - но если хочется рассмотреть образец ближе, никаких ограничений нет.</p></div></details>
+      <details><summary>Нужна ли лаборатория или специальное оборудование?<i></i></summary><div><p>Нет. Набор рассчитан на обычный кабинет биологии или домашний стол. Из инструментов пригодится разве что лупа - большего для работы с образцами не нужно.</p></div></details>
+      <details><summary>Для какого возраста подходит набор?<i></i></summary><div><p>Основная аудитория - учащиеся от 12 лет и старше, а также студенты. Для младших классов набор используют как демонстрационный материал под руководством взрослого.</p></div></details>
+      <details><summary>Как хранить набор?<i></i></summary><div><p>При комнатной температуре, без прямого солнечного света, в штатной упаковке. Холодильник не нужен - это принципиальное отличие от живых культур.</p></div></details>
+      <details><summary>Что делать, если чашка повреждена при перевозке?<i></i></summary><div><p>Сфотографируйте упаковку и образец и напишите нам - повреждённый при доставке образец меняем. Упаковка рассчитана на транспортировку, но форс-мажоры случаются.</p></div></details>
+      <details><summary>Можно ли заказать партию для школы или колледжа?<i></i></summary><div><p>Да. Для организаций работаем по счёту с закрывающими документами, при партии от 5 наборов действует скидка. Оставьте заявку - подготовим коммерческое предложение.</p></div></details>
+      <details><summary>Можно ли собрать набор из других микроорганизмов?<i></i></summary><div><p>Обсуждаемо для партий: состав культур подбирается под учебную программу. Напишите, какие микроорганизмы нужны, и мы оценим возможность.</p></div></details>
+    </div>
+    <p class="faq-empty" id="faq-empty" hidden>По этому запросу ничего не нашлось. Напишите нам - ответим лично.</p>
+  </div>
+</section>
+
+<!-- ─────────────────────────  О ПРОЕКТЕ  ───────────────────────── -->
+<section class="section about-project">
+  <div class="shell ap-grid">
+    <figure class="ap-media reveal">
+      <div class="ap-stack">
+        <img src="assets/img/micro-chlorella.jpg" alt="Chlorella под микроскопом" width="720" height="720" loading="lazy">
+        <img src="assets/img/micro-rhodococcus.jpg" alt="Rhodococcus под микроскопом" width="720" height="720" loading="lazy">
+        <img src="assets/img/micro-fusarium.jpg" alt="Мицелий Fusarium под микроскопом" width="720" height="720" loading="lazy">
+      </div>
+    </figure>
+    <div class="ap-copy reveal">
+      <p class="eyebrow"><span>11</span>О проекте</p>
+      <h2>Создано<br><strong>биотехнологами</strong></h2>
+      <p class="body-lg">Идея выросла из простого наблюдения: у студентов кафедры доступ к культурам есть, а у школьника - нет. Мы взяли лабораторный образец и упаковали его в формат, который выдерживает дорогу до класса и не требует ни халата, ни допуска в лабораторию.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────────────────────  ФИНАЛ  ───────────────────────── -->
+<section class="final-cta">
+  <div class="shell">
+    <p class="eyebrow reveal"><span>12</span>Начать</p>
+    <h2 class="reveal">Посмотрите на биотехнологию<br><em>своими глазами</em></h2>
+    <p class="reveal">Настоящие культуры. Научная основа. Формат, готовый к уроку.</p>
+    <div class="final-actions reveal">
+      <a class="btn btn-light btn-lg" href="#pricing">Собрать набор</a>
+      <a class="btn btn-outline-light btn-lg" href="#order-form">Запросить КП для организации</a>
+    </div>
+    <div class="final-dishes" aria-hidden="true">
+      <img src="assets/img/dish-chlorella.png" alt="" width="500" height="500" loading="lazy">
+      <img src="assets/img/dish-rhodosporidium.png" alt="" width="500" height="500" loading="lazy">
+      <img src="assets/img/dish-fusarium.png" alt="" width="500" height="500" loading="lazy">
+      <img src="assets/img/dish-pseudomonas.png" alt="" width="500" height="500" loading="lazy">
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ─────────────────────────  ПОДВАЛ  ───────────────────────── -->
+<footer class="site-footer">
+  <div class="shell footer-grid">
+    <div class="footer-brand">
+      <a class="brand" href="#top">
+        <img class="brand-mark" src="assets/img/logo-emblem.png" alt="" width="44" height="44" loading="lazy">
+        <span class="brand-text"><b>МИР</b><small>БИОТЕХНОЛОГИЙ</small></span>
+      </a>
+      <p>Образовательный набор с настоящими культурами микроорганизмов. Казань.</p>
+      <form class="subscribe" id="subscribe-form">
+        <label for="sub-email" class="visually-hidden">Электронная почта для рассылки</label>
+        <input id="sub-email" type="email" placeholder="Почта для новостей проекта" required>
+        <button class="btn btn-primary btn-sm" type="submit" aria-label="Подписаться">→</button>
+      </form>
+      <p class="sub-note" id="sub-note" hidden>Готово - адрес сохранён локально в демо-режиме.</p>
+    </div>
+
+    <nav aria-label="Продукт"><b>Продукт</b>
+      <a href="#about">О наборе</a><a href="#kit">Комплектация</a><a href="#cultures">Культуры</a><a href="#process">Технология</a>
+    </nav>
+    <nav aria-label="Покупателям"><b>Покупателям</b>
+      <a href="#pricing">Цены</a><a href="#order-form">Оформить заявку</a><a href="#faq">Вопросы</a><a href="#reviews">Отзывы</a>
+    </nav>
+    <nav aria-label="Контакты"><b>Контакты</b>
+      <a href="mailto:info@mirbiotech.ru">info@mirbiotech.ru</a><a href="https://t.me/" rel="noopener">Telegram</a><a href="https://vk.com/" rel="noopener">ВКонтакте</a>
+    </nav>
+
+    <div class="footer-bottom">
+      <span>© <span id="year">2026</span> «Мир биотехнологий». Образовательный проект.</span>
+      <span><a href="privacy.html">Политика конфиденциальности</a> · <a href="assets/docs/oferta.pdf" download>Оферта</a></span>
+    </div>
+
+    <div class="support-credit">
+      <p>Проект создан при поддержке Федерального государственного бюджетного учреждения «Фонд содействия развитию малых форм предприятий в научно-технической сфере» в рамках программы «Студенческий стартап» федерального проекта «Платформа университетского технологического предпринимательства».</p>
+      <div class="support-logos">
+        <span><img src="assets/img/support-fasie.png" alt="Фонд содействия инновациям" loading="lazy"></span>
+        <span><img src="assets/img/support-platform.png" alt="Платформа университетского технологического предпринимательства" loading="lazy"></span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- модальное окно культуры -->
+<div class="modal" id="culture-modal" hidden>
+  <div class="modal-backdrop" data-close></div>
+  <div class="modal-window" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <button class="modal-close icon-btn" type="button" data-close aria-label="Закрыть">✕</button>
+    <div class="modal-body" id="modal-body"></div>
+    <nav class="modal-nav">
+      <button type="button" id="modal-prev" class="btn btn-ghost btn-sm">← Предыдущая</button>
+      <span id="modal-counter"></span>
+      <button type="button" id="modal-next" class="btn btn-ghost btn-sm">Следующая →</button>
+    </nav>
+  </div>
+</div>
+
+<button class="to-top" id="to-top" type="button" aria-label="Наверх" hidden>↑</button>
+<div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://mirbiotech.ru/#org",
+      "name": "Мир биотехнологий",
+      "email": "info@mirbiotech.ru",
+      "address": {"@type": "PostalAddress", "addressLocality": "Казань", "addressCountry": "RU"},
+      "description": "Образовательный проект по биотехнологии."
+    },
+    {
+      "@type": "Product",
+      "name": "Образовательный набор «Мир биотехнологий»",
+      "description": "Набор из шести чашек Петри с реальными культурами микроорганизмов, инактивированными и зафиксированными в прозрачном полимере, и шести образовательных карточек.",
+      "brand": {"@id": "https://mirbiotech.ru/#org"},
+      "category": "Образовательные наборы",
+      "image": "https://mirbiotech.ru/assets/img/og-cover.png",
+      "offers": {
+        "@type": "AggregateOffer",
+        "priceCurrency": "RUB",
+        "lowPrice": "3906",
+        "highPrice": "17900",
+        "offerCount": "3",
+        "availability": "https://schema.org/InStock"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {"@type": "Question", "name": "Микроорганизмы внутри чашек живые?", "acceptedAnswer": {"@type": "Answer", "text": "Нет. Перед фиксацией культура проходит инактивацию и теряет способность к росту и размножению."}},
+        {"@type": "Question", "name": "Нужна ли лаборатория?", "acceptedAnswer": {"@type": "Answer", "text": "Нет. Набор рассчитан на обычный кабинет биологии или домашний стол."}},
+        {"@type": "Question", "name": "Как хранить набор?", "acceptedAnswer": {"@type": "Answer", "text": "При комнатной температуре, без прямого солнечного света, в штатной упаковке. Холодильник не нужен."}}
+      ]
+    }
+  ]
+}
+</script>
+<script src="assets/js/app.js" defer></script>
+</body>
+</html>
