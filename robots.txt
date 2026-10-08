@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Замените домен на реальный после публикации
+Sitemap: https://mirbiotech.ru/sitemap.xml
